@@ -5,6 +5,14 @@
 
 ## STAR Pattern Examples
 
+# 
+Story: Kafka system crashing under load
+S: Our Kafka-based services suddenly caused portal slowdown. No one had a clear idea why.
+T: As I had built the original Kafka flow, I dug deep to identify the issue.
+A: Found that 10 lakh new loan entries triggered massive writes due to campaign response tracking. Analyzed heap size, scaled DB, then implemented batch writes + DLQ.
+R: System stabilized and now handles 15K+ events/min with zero downtime.
+
+
 ### Example 1: Database Performance Investigation
 **Situation**: Intermittent database timeouts affecting 5% of transactions during peak hours
 **Task**: Root cause analysis and permanent fix for database performance issues

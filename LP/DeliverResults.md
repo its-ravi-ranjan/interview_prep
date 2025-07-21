@@ -5,6 +5,13 @@
 
 ## STAR Pattern Examples
 
+#
+Story: Funnel service for loan recovery states
+S: My manager asked for a service to track recovery stages of loan accounts — originally seemed simple.
+T: I initially tried using if-else conditions, but the logic grew rapidly.
+A: I redesigned it to a condition-driven custom funnel engine, made it scalable for future logic changes.
+R: Delivered the system within a week. It’s now a central reporting service used daily by ops and analytics teams.
+
 ### Example 1: Critical Security Patch Deployment
 **Situation**: Security vulnerability discovered in authentication service with 48-hour deadline for fix
 **Task**: Implement and deploy security fix across all environments while maintaining service availability

@@ -4,6 +4,12 @@
 **Think long-term. Act for the whole company, not just your team. Never say "that's not my job."**
 
 ## STAR Pattern Examples
+## Example 
+Story: DB stream + Kafka worker left incomplete by a resigning dev
+S: A developer left mid-way through implementing a worker thread for DB stream processing via Kafka, which replaced a costly cron + Lambda system.
+T: The task wasn’t assigned to me, but the incomplete code was breaking operations and needed urgent attention.
+A: I took initiative, debugged logic and syntax issues (e.g., missing .toArray() in native Mongo), completed and tested the flow.
+R: Successfully replaced the cron-Lambda setup, fixed DB overload, and reduced cloud cost.
 
 ### Example 1: Cross-Team Production Issue
 **Situation**: Production outage affecting multiple services, initially thought to be frontend issue

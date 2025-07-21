@@ -4,6 +4,14 @@
 **Accomplish more with less. Constraints breed resourcefulness. No extra points for bigger budgets.**
 
 ## STAR Pattern Examples
+#
+Story: Replacing Lambda + cron with Kafka worker
+S: Cron + Lambda was causing DB overload and high AWS costs.
+T: I fixed the incomplete Kafka stream worker to remove Lambda dependency.
+A: Refactored stream logic, ensured smooth flow using Kafka consumer in a worker thread.
+R: Cut AWS Lambda costs significantly while improving performance and reliability.
+
+
 
 ### Example 1: Infrastructure Cost Optimization
 **Situation**: AWS monthly costs increased by 300% due to inefficient resource usage and over-provisioning

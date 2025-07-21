@@ -5,6 +5,13 @@
 
 ## STAR Pattern Examples
 
+#
+Story: Multiple payment/email/SMS providers using Strategy Pattern
+S: Our email (SES) and payment gateway services started failing intermittently, but code was tightly coupled with no fallback.
+T: I took the initiative to redesign the system so it could support multiple providers safely.
+A: I used the Strategy Pattern, abstracted logic for each service, created dynamic provider selection, and added fallback support.
+R: System became modular, fail-safe, and scalable — now multiple services work interchangeably without risk.
+
 ### Example 1: Kafka Scaling Solution
 **Situation**: Message processing bottleneck causing 30-minute delays in order processing during peak hours
 **Task**: Design and implement scalable message processing solution

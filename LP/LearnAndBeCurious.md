@@ -5,6 +5,13 @@
 
 ## STAR Pattern Examples
 
+#
+Story: Self-taught Kafka to build production system
+S: No one in the team had prior Kafka experience, including me.
+T: Still, I was assigned to create Kafka messaging services for campaign tracking.
+A: I read documentation, watched tutorials, tried proof-of-concepts, and deployed Kafka consumers and producers in a week.
+R: My implementation became the foundation for streaming use-cases in the company.
+
 ### Example 1: Learning Kubernetes Under Pressure
 **Situation**: Team needs to migrate from traditional deployment to Kubernetes within 3 weeks for scalability requirements
 **Task**: Learn Kubernetes and lead migration while maintaining existing services

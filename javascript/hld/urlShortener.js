@@ -1,12 +1,56 @@
 /**
- * URL Shortener System Design - Amazon Interview Focus
+ * URL SHORTENER SYSTEM DESIGN - AMAZON INTERVIEW ESSENTIALS
  * 
- * Key Components:
- * 1. Base62 Encoding for short URLs
- * 2. Database Design (PostgreSQL + Redis)
- * 3. Caching Strategy with Eviction
- * 4. Scalability Considerations
- * 5. High Availability Design
+ * 🎯 WHAT TO REMEMBER FOR INTERVIEWS:
+ * 1. Base62 Encoding: Converts numeric IDs to short URLs (0-9, A-Z, a-z)
+ * 2. NoSQL Database: DynamoDB/Cassandra for high availability and scalability
+ * 3. Redis Caching: LRU eviction for frequently accessed URLs
+ * 4. Rate Limiting: Token bucket to prevent abuse
+ * 5. Load Balancing: Distribute traffic across multiple servers
+ * 
+ * 🔑 KEY CONCEPTS:
+ * - URL shortening converts long URLs to short, memorable links
+ * - Base62 encoding provides 62^6 = 56 billion unique combinations
+ * - NoSQL databases handle high write/read throughput
+ * - Caching reduces database load for popular URLs
+ * - Rate limiting prevents API abuse
+ * 
+ * 📊 SYSTEM COMPONENTS:
+ * Base62 Encoding: ✅ URL safe, ✅ Short, ✅ Case sensitive
+ * NoSQL Database: ✅ High availability, ✅ Auto-scaling, ✅ Global distribution
+ * Redis Cache: ✅ Fast access, ✅ LRU eviction, ✅ TTL support
+ * Rate Limiting: ✅ Token bucket, ✅ Per-user limits, ✅ Abuse prevention
+ * Load Balancer: ✅ Traffic distribution, ✅ Health checks, ✅ Failover
+ * 
+ * 🔄 STEP-BY-STEP EXAMPLE OF HOW IT WORKS:
+ * 
+ * ✅ Step 1: Save the Long URL & Generate a Unique ID
+ * Let's say a user wants to shorten:
+ * https://example.com/my-very-long-url
+ * You store it in a database.
+ * It gets a unique auto-increment ID, like 125.
+ * 
+ * ✅ Step 2: Encode the ID into Base62
+ * Now, convert that 125 into Base62:
+ * 125 in decimal => "cb" in Base62
+ * So the short URL becomes:
+ * https://short.ly/cb
+ * (You now associate the short string "cb" with ID 125 in the DB)
+ * 
+ * ✅ Step 3: Redirection (Retrieve Long URL)
+ * When someone hits:
+ * https://short.ly/cb
+ * You:
+ * - Decode "cb" back to Base10 = 125
+ * - Look up ID 125 in the database
+ * - Get the original long URL: https://example.com/my-very-long-url
+ * - Redirect user to it (HTTP 301/302)
+ * 
+ * 📦 Why Use Base62?
+ * - Shorter strings (more compact than base10 or base16)
+ * - URL-safe (no special chars like /, +, =)
+ * - Easy to generate and decode
+ * - Human-readable (vs UUIDs or hash)
  */
 
 // ==================== 1. BASE62 ENCODING ====================

@@ -5,6 +5,15 @@
 
 ## STAR Pattern Examples
 
+#
+Story: DB stream + Kafka refactor
+S: After fixing the DB stream Kafka worker, I could have stopped at “it works.”
+T: But I wanted it production-grade.
+A: I added detailed logging, retry handling, error monitoring, and load testing.
+R: The solution has been running smoothly since, with no hidden bugs or silent failures.
+
+
+
 ### Example 1: Code Quality Standards Implementation
 **Situation**: Team struggling with code quality issues causing frequent production bugs and technical debt
 **Task**: Establish and enforce high coding standards across the team

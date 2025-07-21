@@ -5,6 +5,15 @@
 
 ## STAR Pattern Examples
 
+#
+Story: Funnel logic — if-else vs scalable design
+S: My senior suggested using simple if-else for loan funnel logic.
+T: Initially agreed, but I later realized it wouldn't scale as logic increased.
+A: I pushed for a configurable and dynamic funnel engine. Designed and coded it.
+R: This became the standard and made future logic changes easy — with fewer bugs and no rewrites.
+
+
+
 ### Example 1: Database Architecture Decision
 **Situation**: Team debating between SQL and NoSQL for new user profile system with mixed data requirements
 **Task**: Make correct architectural decision based on data analysis and future requirements

@@ -5,6 +5,13 @@
 
 ## STAR Pattern Examples
 
+#
+Story: Kafka performance under increasing load
+S: Our Kafka services hit performance issues during peak data periods.
+T: I didn’t just fix the symptom — I wanted a future-proof solution.
+A: Introduced batch processing, DLQs, added topic-level configs, and distributed load across consumers.
+R: System scaled 10x — from 1K to 15K+ messages/min without needing infra upgrades.
+
 ### Example 1: Scalable Architecture Vision
 **Situation**: Current monolithic application struggling to handle 10x user growth projected for next year
 **Task**: Design and implement scalable architecture to support 1M+ users

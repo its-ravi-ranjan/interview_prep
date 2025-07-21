@@ -5,6 +5,14 @@
 
 ## STAR Pattern Examples
 
+## 
+Story: First-time Kafka implementation
+S: When I joined, I was assigned a task to implement Kafka-based services, even though neither I nor anyone in the team had Kafka experience.
+T: I needed to research, learn Kafka, and build both producer and consumer services quickly.
+A: I studied Kafka in-depth, read official docs and tutorials, and built the services in under a week.
+R: System handled 1000+ messages per minute reliably and became a base for further real-time features.
+
+
 ### Example 1: Production Incident Response
 **Situation**: Database cluster experiencing 50% failure rate during peak traffic, with limited information about root cause
 **Task**: Make quick decisions to restore service while investigating root cause

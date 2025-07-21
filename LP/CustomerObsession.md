@@ -4,6 +4,12 @@
 **Start with the customer, work backwards. Earn and keep customer trust.**
 
 ## STAR Pattern Examples
+#
+Story: Funnel visibility for collections ops
+S: Loan recovery teams needed better visibility into account recovery states.
+T: My manager asked for a fast solution to track these states.
+A: I designed and delivered a funnel engine that displays exact stage transitions based on rules.
+R: Teams now have real-time visibility into every account's recovery status, improving operational decisions.
 
 ### Example 1: Production Bug Fix
 **Situation**: Critical production bug causing 500 errors for 10% of users during peak hours

@@ -1,16 +1,66 @@
 /**
  * Postorder Traversal of Binary Tree
  * 
- * Problem:
+ * 🎯 PROBLEM STATEMENT:
  * Given the root of a binary tree, return the postorder traversal of its nodes' values.
  * 
- * Example:
- * Input: root = [1,null,2,3]
- * Output: [3,2,1]
+ * 📝 EXAMPLES:
+ * Input: root = [1,null,2,3] → Output: [3,2,1]
+ * Input: root = [1,2,3,4,5] → Output: [4,5,2,3,1]
  * 
- * Approach:
- * 1. Recursive DFS: Left -> Right -> Root
- * 2. Iterative using two stacks
+ * 🔍 PATTERN RECOGNITION:
+ * This is a classic Tree Traversal problem!
+ * - Postorder: Left → Right → Root
+ * - Iterative approaches use stack(s) to simulate recursion
+ * - Can be implemented using different stack strategies
+ * 
+ * 🎯 KEY INSIGHT:
+ * 🔁 TWEAK: Postorder is the reverse of modified preorder!
+ * Normal Preorder: Root → Left → Right
+ * Modified Preorder: Root → Right → Left
+ * Postorder: Left → Right → Root (reverse of modified preorder)
+ * Use this property for efficient iterative implementation.
+ * 
+ * ==================== QUICK RECAP - ALL APPROACHES ====================
+ * 
+ * 🎯 APPROACH 1: RECURSIVE DFS
+ * 💡 IDEA: Recursively traverse left subtree, then right subtree, then visit root
+ * ⏰ TIME: O(n) - Visit each node once
+ * 🏠 SPACE: O(h) - Height of tree (call stack)
+ * ✅ BEST FOR: Understanding, simple implementation
+ * 
+ * 🎯 APPROACH 2: ITERATIVE WITH TWO STACKS
+ * 💡 IDEA: 🔁 TWEAK preorder (Root→Right→Left), push to stack1, reverse using stack2
+ * ⏰ TIME: O(n) - Single pass through tree
+ * 🏠 SPACE: O(n) - Two stacks for all nodes
+ * ✅ BEST FOR: Clear understanding of reverse logic
+ * 
+ * 🎯 APPROACH 3: ITERATIVE WITH LINKEDLIST (RECOMMENDED)
+ * 💡 IDEA: 🔁 TWEAK preorder (Root→Right→Left), use LinkedList.addFirst() to reverse
+ * ⏰ TIME: O(n) - Single pass through tree
+ * 🏠 SPACE: O(n) - One stack + result list
+ * ✅ BEST FOR: Most efficient iterative approach
+ * 
+ * 📊 COMPARISON TABLE:
+ * ┌─────────────────┬─────────────────┬─────────────┬─────────────┬─────────────┐
+ * │    APPROACH     │   TIME COMPLEXITY│SPACE COMPLEXITY│  PRACTICAL  │  INTERVIEW  │
+ * ├─────────────────┼─────────────────┼─────────────┼─────────────┼─────────────┤
+ * │ Recursive DFS   │       O(n)      │     O(h)     │    ⭐⭐⭐⭐    │    ⭐⭐⭐⭐    │
+ * │ Two Stacks      │       O(n)      │     O(n)     │    ⭐⭐⭐⭐    │    ⭐⭐⭐⭐    │
+ * │ LinkedList      │       O(n)      │     O(n)     │    ⭐⭐⭐⭐⭐   │    ⭐⭐⭐⭐⭐   │
+ * └─────────────────┴─────────────────┴─────────────┴─────────────┴─────────────┘
+ * 
+ * 🎯 INTERVIEW ANSWER: "🔁 TWEAK: Postorder is reverse of modified preorder! 
+ * Normal preorder: Root→Left→Right, but for postorder we use Root→Right→Left and reverse it. 
+ * I push nodes in Root→Right→Left order and use LinkedList.addFirst() to reverse the result."
+ * 
+ * 🔑 KEY POINTS TO REMEMBER:
+ * 1. 🔁 TWEAK: Postorder = reverse of modified preorder
+ * 2. Normal Preorder: Root → Left → Right
+ * 3. Modified Preorder: Root → Right → Left
+ * 4. Postorder: Left → Right → Root (reverse of #3)
+ * 5. Push right child before left child for correct order
+ * 6. LinkedList.addFirst() efficiently reverses the result
  */
 
 import java.util.*;
@@ -43,7 +93,22 @@ class PostorderTraversal {
         result.add(root.val);
     }
 
-    // Iterative approach using two stacks
+    // ==================== APPROACH 2: ITERATIVE WITH TWO STACKS ====================
+    /**
+     * 🎯 APPROACH: Iterative with Two Stacks
+     * 
+     * 💡 IDEA: 
+     * - Push nodes in Root → Right → Left order to stack1
+     * - Transfer to stack2 to reverse the order
+     * - Pop from stack2 to get Left → Right → Root (postorder)
+     * 
+     * ⏰ TIME COMPLEXITY: O(n)
+     *    - Each node is pushed and popped twice
+     *    - Single pass through the tree
+     * 
+     * 🏠 SPACE COMPLEXITY: O(n)
+     *    - Two stacks may contain all nodes in worst case
+     */
     public List<Integer> iterativePostorderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if (root == null) return result;
@@ -56,6 +121,7 @@ class PostorderTraversal {
             TreeNode node = stack1.pop();
             stack2.push(node);
             
+            // Push left after right so right is processed first
             if (node.left != null) stack1.push(node.left);
             if (node.right != null) stack1.push(node.right);
         }
@@ -64,6 +130,42 @@ class PostorderTraversal {
             result.add(stack2.pop().val);
         }
         
+        return result;
+    }
+    
+    // ==================== APPROACH 3: ITERATIVE WITH LINKEDLIST ====================
+    /**
+     * 🎯 APPROACH: Iterative with LinkedList (RECOMMENDED)
+     * 
+     * 💡 IDEA: 
+     * - Push nodes in Root → Right → Left order using one stack
+     * - Use LinkedList.addFirst() to reverse the result efficiently
+     * - No need for second stack
+     * 
+     * ⏰ TIME COMPLEXITY: O(n)
+     *    - Single pass through the tree
+     *    - LinkedList.addFirst() is O(1) amortized
+     * 
+     * 🏠 SPACE COMPLEXITY: O(n)
+     *    - One stack + result list
+     *    - More space efficient than two stacks
+     */
+    public List<Integer> postorderUsingLinkedList(TreeNode root) {
+        LinkedList<Integer> result = new LinkedList<>();
+        if (root == null) return result;
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            result.addFirst(node.val); // Reverse by inserting at front
+
+            // Push left after right so right is processed first
+            if (node.left != null) stack.push(node.left);
+            if (node.right != null) stack.push(node.right);
+        }
+
         return result;
     }
 
@@ -118,6 +220,7 @@ class PostorderTraversal {
         System.out.println("\nTest case 4: Complete binary tree [1,2,3,4,5]");
         TreeNode root4 = createTree(new Integer[]{1, 2, 3, 4, 5});
         System.out.println("Recursive: " + solution.postorderTraversal(root4));
-        System.out.println("Iterative: " + solution.iterativePostorderTraversal(root4));
+        System.out.println("Two Stacks: " + solution.iterativePostorderTraversal(root4));
+        System.out.println("LinkedList: " + solution.postorderUsingLinkedList(root4));
     }
 } 

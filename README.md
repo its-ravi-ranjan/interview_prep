@@ -1,59 +1,149 @@
-# DSA & OOPs Practice – Java & JavaScript Side by Side
+# 🚀 Interview Preparation Repository
 
-Welcome to this repository! 🎯  
-This project is designed for **students and professionals** preparing for coding interviews, competitive programming, or building strong fundamentals in **Data Structures & Algorithms (DSA)** and **Object-Oriented Programming (OOPs)**.
+**Author:** Ravi Ranjan  
+**GitHub:** [@its-ravi-ranjan](https://github.com/its-ravi-ranjan)  
+**Email:** contact70raviranjan@gmail.com  
+**Created:** 2024  
+**Purpose:** Comprehensive interview preparation materials and knowledge sharing
 
 ---
 
-## 📁 Folder Structure
+## 📚 Overview
 
-```bash
-.
-├── java/         # Java solutions
-└── javascript/   # JavaScript solutions
-Each folder contains the same DSA and OOPs problems solved in both Java and JavaScript. This allows you to:
+This repository contains comprehensive study materials for technical interviews, focusing on data structures, algorithms, system design, and networking concepts. Perfect for preparing for top tech companies like Amazon, Google, Microsoft, and more.
 
-👨‍💻 Compare implementations across languages
+## 🎯 What's Included
 
-🚀 Learn how logic translates between statically and dynamically typed languages
+### **📊 Data Structures & Algorithms**
+- **Java & JavaScript implementations** of common algorithms
+- **Easy, Medium, Hard** problem categories
+- **Multiple approaches** for each problem
+- **Time & Space complexity** analysis
 
-🧠 Strengthen your understanding regardless of your core language choice
+### **🏗️ System Design**
+- **High-Level Design (HLD)** concepts
+- **Low-Level Design (LLD)** patterns
+- **Design patterns** (Creational, Structural, Behavioral)
+- **Real-world examples** and case studies
 
-✅ What's Covered
-🔹 Array & String problems
+### **🌐 Networking**
+- **Complete OSI Model** breakdown (7 layers)
+- **Detailed explanations** of each layer
+- **Real-world examples** (Google search flow)
+- **Interview-focused** content
 
-🔹 Linked List, Stack, Queue
+### **💡 Object-Oriented Programming**
+- **Core OOP concepts** (Abstraction, Encapsulation, Inheritance, Polymorphism)
+- **SOLID principles**
+- **Design patterns** implementation
 
-🔹 Trees, Graphs
+## 📁 Repository Structure
 
-🔹 Recursion & Backtracking
+```
+interview-prep/
+├── 📁 java/                    # Java implementations
+│   ├── 📁 array/              # Array problems
+│   ├── 📁 linkedlist/         # Linked List problems
+│   ├── 📁 tree/               # Tree problems
+│   ├── 📁 dp/                 # Dynamic Programming
+│   ├── 📁 hld/                # High-Level Design
+│   ├── 📁 lld/                # Low-Level Design
+│   └── 📁 designpattern/      # Design Patterns
+├── 📁 javascript/              # JavaScript implementations
+│   ├── 📁 array/              # Array problems
+│   ├── 📁 linkedlist/         # Linked List problems
+│   ├── 📁 tree/               # Tree problems
+│   ├── 📁 dp/                 # Dynamic Programming
+│   ├── 📁 hld/                # High-Level Design
+│   ├── 📁 lld/                # Low-Level Design
+│   └── 📁 designpattern/      # Design Patterns
+├── 📁 networking/              # Networking concepts
+│   ├── 📄 OSI_Intro.md        # OSI Model introduction
+│   ├── 📄 01_Physical_Layer.md
+│   ├── 📄 02_Data_Link_Layer.md
+│   ├── 📄 03_Network_Layer.md
+│   ├── 📄 04_Transport_Layer.md
+│   ├── 📄 05_Session_Layer.md
+│   ├── 📄 06_Presentation_Layer.md
+│   └── 📄 07_Application_Layer.md
+└── 📁 LP/                      # Leadership Principles
+```
 
-🔹 Sorting & Searching
+## 🌟 Featured Content
 
-🔹 Dynamic Programming
+### **🔗 Networking Deep Dive**
+- **Complete OSI Model** with real-world examples
+- **Step-by-step breakdown** of HTTP request flow
+- **Amazon interview focus** with AWS context
+- **Practical examples** using Google search scenario
 
-🔹 Object-Oriented Programming (OOPs) concepts:
+### **💻 Algorithm Solutions**
+- **200+ problems** solved in Java and JavaScript
+- **Multiple approaches** for each problem
+- **Optimized solutions** with complexity analysis
+- **Interview-ready** code with comments
 
-Inheritance, Polymorphism, Encapsulation, Abstraction
+### **🏢 System Design Patterns**
+- **Microservices architecture**
+- **Scalable system design**
+- **Database design patterns**
+- **Real-world case studies**
 
-Class design and real-world examples
+## 🎓 Interview Preparation Tips
 
-📌 Who Should Use This Repo?
-🧑‍🎓 Students preparing for FAANG or product-based company interviews
+### **For Amazon SDE2 Interviews**
+- Focus on **Leadership Principles** in LP folder
+- Understand **AWS services** and their networking implications
+- Practice **system design** with scalability in mind
+- Master **data structures** and algorithms
 
-💼 Working professionals switching stacks or strengthening fundamentals
+### **For General Tech Interviews**
+- Review **OSI model** for networking questions
+- Practice **coding problems** in both Java and JavaScript
+- Understand **design patterns** and their applications
+- Study **system design** principles
 
-🔁 Developers who want to understand Java ↔ JavaScript logic mapping
+## 🔍 How to Use This Repository
 
-🚧 How to Contribute
-Fork this repo 🍴
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/its-ravi-ranjan/interview_prep.git
+   cd interview-prep
+   ```
 
-Add a new DSA or OOPs example to both java/ and javascript/ folders
+2. **Navigate to specific topics:**
+   - For networking: `cd networking/`
+   - For algorithms: `cd java/array/easy/` or `cd javascript/array/easy/`
+   - For system design: `cd java/hld/` or `cd java/lld/`
 
-Submit a PR with meaningful commit messages 🙌
+3. **Study systematically:**
+   - Start with OSI model introduction
+   - Practice coding problems
+   - Review system design concepts
+   - Understand leadership principles
 
-🙏 Acknowledgements
-Built with ❤️ to help fellow learners who want to master DSA & OOPs with flexibility in their language of choice.
+## 🤝 Contributing
 
-📫 Contact
-If you have any suggestions or questions, feel free to open an issue or connect on LinkedIn.
+Feel free to contribute to this repository by:
+- Adding new problem solutions
+- Improving existing explanations
+- Fixing typos or errors
+- Adding new topics or concepts
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🔗 Connect With Me
+
+- **GitHub:** [@its-ravi-ranjan](https://github.com/its-ravi-ranjan)
+- **LinkedIn:** [Ravi Ranjan](https://linkedin.com/in/its-ravi-ranjan)
+- **Email:** contact70raviranjan@gmail.com
+
+## ⭐ Star This Repository
+
+If you find this repository helpful for your interview preparation, please give it a star! ⭐
+
+---
+
+**Happy Learning and Good Luck with Your Interviews! 🚀**

@@ -56,6 +56,34 @@ public class IsAnagram {
         return true;
     }
     
+    /**
+     * Check if two strings are anagrams using array approach (optimized for lowercase letters)
+     * @param s First string
+     * @param t Second string
+     * @return true if anagrams, false otherwise
+     */
+    public static boolean isAnagramArray(String s, String t) {
+        if (s.length() != t.length()) return false;
+        
+        int[] charCount = new int[26];
+        
+        // Count characters in first string
+        for (int i = 0; i < s.length(); i++) {
+            charCount[s.charAt(i) - 'a']++;
+        }
+        
+        // Decrease count for characters in second string
+        for (int i = 0; i < t.length(); i++) {
+            if (charCount[t.charAt(i) - 'a'] <= 0) {
+                return false;
+            } else {
+                charCount[t.charAt(i) - 'a']--;
+            }
+        }
+        
+        return true;
+    }
+    
     // Minimal test cases
     public static void runTests() {
         System.out.println("=== Valid Anagram Tests ===");

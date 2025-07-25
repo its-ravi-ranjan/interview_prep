@@ -52,6 +52,61 @@
  * - Reliable: Retry mechanisms and circuit breakers
  * - Fast: Redis caching and CDN for static content
  * - Consistent: Optimistic locking prevents overselling
+ * 
+ * 
+ * 🛒 E-commerce Product Lifecycle & Search Flow
+ *  ✅ 1. Product & Variant Creation
+ *  Admin adds product:
+ *  - Stored in products collection (or table)
+ *  - Then adds variants (size, color, etc.):
+ *  - Stored in variants collection
+ *  - Each variant contains:
+ *  - SKU, price, dimensions, etc.
+ * 
+ *  ✅ 2. Inventory Update
+ *  - For each variant:
+ *  - Inventory is stored per location/warehouse in inventory collection
+ *  - Example:
+    {
+    "variantId": "V123",
+    "location": "Delhi",
+    "quantity": 10
+    }
+ *  ✅ 3. ElasticSearch Sync (for Search Use Cases)
+ *  - When a product or variant is added/updated:
+ *  - A message is sent to Kafka queue (e.g., product_updates)
+ *  - A sync service listens and updates a combined doc in Elasticsearch:
+    {
+    "productId": "P001",
+    "variantId": "V123",
+    "title": "Samsung S23 Ultra",
+    "description": "Latest model...",
+    "category": "Smartphones",
+    "location_stock": [
+        { "location": "Delhi", "stock": 10, "geo": { "lat": 28.6, "lon": 77.2 } },
+        { "location": "Mumbai", "stock": 0 }
+    ]
+    }
+ * ✅ 4. Search Flow (User Side)
+ *  - User types a query and selects their location/pincode
+ *  - Frontend sends request → Backend queries Elasticsearch
+ *  - Elasticsearch filters:
+ *  - Text match (title, brand, description, etc.)
+ *  - Optional location-based stock filter (location_stock.stock > 0)
+ *  - Results are returned ranked by relevance + availability
+ *  - UI displays availability (based on ES data)
+
+ * ✅ 5. At Checkout: Real-Time Stock Check
+ *  - Before placing order, backend:
+ *  - Validates real-time quantity from inventory DB
+ *  - Optionally locks or reserves stock
+ *  - ❌ Never rely on ES for real-time quantity
+ * 
+ * ✅ 6. Post-order Inventory Update
+ *  - Once order is placed:
+ *  - Inventory DB is decremented
+ *  - A stock_updated event is pushed to Kafka
+ *  - ElasticSearch is updated asynchronously via consumer
  */
 
 import java.util.*;

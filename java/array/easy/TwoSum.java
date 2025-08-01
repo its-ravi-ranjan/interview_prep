@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * Two Sum
- * 
+ * star question asked in faang interviews
  * Problem:
  * Given an array of integers nums and an integer target, return the indices
  * of the two numbers such that they add up to target. You may assume that
